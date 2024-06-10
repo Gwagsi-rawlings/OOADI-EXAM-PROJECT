@@ -1,0 +1,90 @@
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QComboBox, QSlider, QCheckBox, QPushButton, QLineEdit
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtCore import Qt
+
+class ProfilePage(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        # Set window title and size
+        self.setWindowTitle("Profile Page")
+        self.setGeometry(100, 100, 800, 600)
+
+        # Create main layout
+        main_layout = QVBoxLayout()
+
+        # Create profile header
+        profile_header = QHBoxLayout()
+
+        # Profile image
+        self.profile_image = QLabel()
+        self.profile_image.setPixmap(QPixmap("profile-image.jpg").scaled(80, 80, Qt.KeepAspectRatio))
+        profile_header.addWidget(self.profile_image)
+
+        # Profile info
+        self.profile_info = QVBoxLayout()
+        self.name_label = QLineEdit("John Doe")
+        self.location_label = QLineEdit("New York, NY")
+        self.joined_label = QLabel("Joined: March 2021")
+        self.profile_info.addWidget(self.name_label)
+        self.profile_info.addWidget(self.location_label)
+        self.profile_info.addWidget(self.joined_label)
+        profile_header.addLayout(self.profile_info)
+
+        # Settings button
+        self.edit_button = QPushButton("Edit")
+        self.edit_button.clicked.connect(self.edit_profile)
+        profile_header.addWidget(self.edit_button)
+
+        main_layout.addLayout(profile_header)
+
+        # Map settings
+        map_settings = QVBoxLayout()
+        map_theme_label = QLabel("Map Theme:")
+        self.map_theme_combo = QComboBox()
+        self.map_theme_combo.addItems(["Default", "Satellite", "Terrain"])
+        map_zoom_label = QLabel("Map Zoom:")
+        self.map_zoom_slider = QSlider(Qt.Horizontal)
+        self.map_zoom_slider.setMinimum(1)
+        self.map_zoom_slider.setMaximum(20)
+        self.map_zoom_slider.setValue(10)
+        map_settings.addWidget(map_theme_label)
+        map_settings.addWidget(self.map_theme_combo)
+        map_settings.addWidget(map_zoom_label)
+        map_settings.addWidget(self.map_zoom_slider)
+        main_layout.addLayout(map_settings)
+
+        # Notification settings
+        notification_settings = QVBoxLayout()
+        new_location_checkbox = QCheckBox("Receive notifications for new location updates")
+        new_location_checkbox.setChecked(True)
+        nearby_poi_checkbox = QCheckBox("Receive notifications for nearby points of interest")
+        notification_settings.addWidget(new_location_checkbox)
+        notification_settings.addWidget(nearby_poi_checkbox)
+        main_layout.addLayout(notification_settings)
+
+        self.setLayout(main_layout)
+
+    def edit_profile(self):
+        self.name_label.setReadOnly(False)
+        self.location_label.setReadOnly(False)
+        self.edit_button.setText("Save")
+        self.edit_button.clicked.disconnect(self.edit_profile)
+        self.edit_button.clicked.connect(self.save_profile)
+
+    def save_profile(self):
+        self.name_label.setReadOnly(True)
+        self.location_label.setReadOnly(True)
+        self.edit_button.setText("Edit")
+        self.edit_button.clicked.disconnect(self.save_profile)
+        self.edit_button.clicked.connect(self.edit_profile)
+        # Save the updated profile information
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    profile_page = ProfilePage()
+    profile_page.show()
+    sys.exit(app.exec_())
