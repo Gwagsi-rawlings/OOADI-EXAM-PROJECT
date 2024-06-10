@@ -62,26 +62,44 @@ header {
     transform: scaleX(1);
 }
 
-
-.navigation .btnSearch-popup {
-   width: 130px;
-   height: 50px;
-   background: transparent;
-   border: transparent;
-   outline: none;
-   border-radius: 6px;
-   cursor: pointer;
-   font-size: 1.1em;
-   color: #fff;
-   font-weight: 500;
-   margin-left: 40px;
-   transition: 1ms;
-
+.navigation .btnWeather-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: transparent;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: 1ms;
 }
 
-.navigation .btnSearch-popup:hover {
-   background: #fff;
-   color: #162938;
+.navigation .btnWeather-popup:hover {
+    background: #fff;
+    color: #162938;
+}
+
+.navigation .btnShareLocation-button {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: transparent;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: 1ms;
+}
+
+.navigation .btnShareLocation-button:hover {
+    background: #fff;
+    color: #162938;
 }
 
 .navigation .btnLogin-popup {
@@ -97,61 +115,64 @@ header {
     font-weight: 500;
     margin-left: 40px;
     transition: 1ms;
-   }
+}
 
 .navigation .btnLogin-popup:hover {
     background: #fff;
     color: #162938;
 }
 
-
 #map {
     height: 600px;
-    width: 100%;
-  }
-  
-  .container {
+    width: 1900px;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
     position: relative;
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 0px;
     border: transparent;
     border-radius: 16px;
     justify-content: flex-start;
-  }
-   
-  .search-bar {
-    position: relative; 
+}
+
+.search-bar {
+    position: relative;
     width: 500px;
     height: 55px;
     border: none;
     border-radius: 20px;
-    padding: 0 20px;
+    padding: 0 28px;
     font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-right: 20px;
-    
-  }
+    margin-bottom: 20px;
+}
 
-  /*  icons */
-  .search-bar i {
-  position: absolute;
-  left: 30px;
-  font-size: 28px;
-  outline: none;
 
-  }
+/*  icons */
 
-  .search-bar input {
-   position:absolute; 
+.search-bar i {
+    position: relative;
+    left: 3px;
+    font-size: 28px;
+    outline: 10;
+    height: 28px;
+    width: 28px;
+}
+
+.search-bar input {
+    position: absolute;
     width: 100%;
     height: 100%;
     background: transparent;
-    border: 2px solid rgba(255,255,255,.1);
+    border: 2px solid rgba(255, 255, 255, .1);
     outline: none;
     border-radius: 10px;
     font-size: 22px;
@@ -159,18 +180,17 @@ header {
     font-weight: 500;
     text-transform: uppercase;
     padding: 0 48px 0 42px;
-    
-    
-  }
+    align-items: center;
+}
 
-  .search-bar input::placeholder {
+.search-bar input::placeholder {
     color: #162938;
     text-transform: capitalize;
-  }
+    align-items: center;
+}
 
-  .search-bar button {
-
-    position: absolute; 
+.search-bar button {
+    position: absolute;
     right: 0;
     width: 40px;
     height: 100%;
@@ -184,86 +204,89 @@ header {
     cursor: pointer;
     justify-content: flex-start;
     margin-left: 10px;
-  }
-  
-  
-  
+}
 
-  .itinerary-controls {
+.itinerary-controls {
     position: relative;
     margin-bottom: 20px;
-    width: 300px;
+    width: 500px;
+    height: 55px;
     border: none;
     border-radius: 20px;
+    padding: 0 20px;
     font-size: 16px;
-    height: 40px;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    margin-right: 20px;
+}
 
-   } 
+.itinerary-controls i {
+    position: relative;
+    left: 0px;
+    font-size: 28px;
+    outline: 10;
+    height: 28px;
+    width: 28px;
+}
 
-   .itinerary-controls i {
-  position: relative;
-  left: 10px;
-  font-size: 26px;
-  outline: none;
-   }
-
-   .itinerary-controls input {
+.itinerary-controls input {
     position: absolute;
     width: 100%;
     height: 100%;
     background: transparent;
-    border: 2px solid rgba(255,255,255,.1);
+    border: 2px solid rgba(255, 255, 255, .1);
     outline: none;
     border-radius: 10px;
     font-size: 22px;
-    color: #fff;
+    color: #162938;
     font-weight: 500;
     text-transform: uppercase;
     padding: 0 48px 0 42px;
     justify-content: flex-end;
-  }
+    align-items: center;
+}
 
-  .itinerary-controls input::placeholder {
-    color: #fff;
+.itinerary-controls input::placeholder {
+    color: #162938;
     text-transform: capitalize;
-  }
+    align-items: center;
+}
 
-
-  .itinerary-controls button {
-
+.itinerary-controls button {
     position: absolute;
     right: 0;
     width: 40px;
     height: 100%;
     background: transparent;
     border: none;
+    border-radius: 20px;
     outline: none;
-    font-size: 30px;
+    font-size: 28px;
     color: #162938;
-    padding: 0 40px 0 5px;
+    padding: 10px 20px;
     cursor: pointer;
-  }
-  
-  
+    justify-content: center;
+    margin-left: 10px;
+}
 
-
-  
-  .recent-searches {
+.recent-searches {
     margin-top: 20px;
     width: 100%;
-  }
-  
-  #recent-searches-list {
+}
+
+#recent-searches-list {
     list-style-type: none;
     padding: 0;
-  }
-  
-  #share-location, #add-to-itinerary {
+}
+
+#share-location {
     margin-top: 20px;
-  }
-  
+}
+
+#add-to-itinerary {
+    margin-top: 20px;
+}
 
 .wrapper {
     position: fixed;
@@ -278,7 +301,6 @@ header {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-
     visibility: visible;
     overflow: hidden;
     transform: scale(0);
